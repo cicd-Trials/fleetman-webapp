@@ -19,6 +19,8 @@ spec:
           value: production-microservice
         image: ${REPOSITORY_TAG}
         imagePullPolicy: Never
+        command: [ "sleep" ]
+        args: [ "infinity" ]
         readinessProbe:
           httpGet:
             path: /
