@@ -11,7 +11,13 @@ RUN apk add --update bash && rm -rf /var/cache/apk/*
 
 RUN rm -rf /usr/share/nginx/html/*
 
-COPY /dist /usr/share/nginx/html
+RUN rm /etc/nginx/conf.d/default.conf
+
+COPY content /usr/share/nginx/html
+
+COPY conf /etc/nginx
+
+# COPY /dist /usr/share/nginx/html
 
 COPY nginx.conf.j2 /templates/
 
